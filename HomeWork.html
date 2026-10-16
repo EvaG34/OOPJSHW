@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+
+<body>
+    <script>
+        function Rect(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        Rect.prototype.getArea = function () {
+            return this.width * this.height;
+        };
+
+        Rect.prototype.getPerimeter = function () {
+            return 2 * (this.width + this.height);
+        };
+
+        let rect1 = new Rect(10, 5);
+        console.log("Area of a rectangle: " + rect1.getArea());
+        console.log("Perimeter of a rectangle: " + rect1.getPerimeter());
+
+        //Задание 1
+
+        function Circle(radius) {
+            this.radius = radius;
+        }
+
+        Circle.prototype.getArea = function () {
+            return Math.PI * this.radius * this.radius;
+        };
+
+        Circle.prototype.getCircumference = function () {
+            return 2 * Math.PI * this.radius;
+        };
+
+        let circle1 = new Circle(5);
+        console.log("Area of a circle: " + circle1.getArea());
+        console.log("Circumference: " + circle1.getCircumference());
+
+
+        //Задание 2
+
+        function User(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        User.prototype.sayHello = function () {
+            return console.log("Hello, my name is ${this.name}")
+        };
+
+        User.prototype.isAdult = function () {
+            if (age >= 18) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        //Задание 3
+
+        function Triangle(a, b, c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        Triangle.prototype.getPerimeter = function () {
+            return this.a + this.b + this.c;
+        };
+
+        Triangle.prototype.getArea = function () {
+            const p = this.getPerimeter() / 2;
+            return Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
+        };
+        
+        const t = new Triangle(3, 4, 5);
+        console.log("Perimeter:", t.getPerimeter());
+        console.log("Area:", t.getArea());
+
+    </script>
+</body>
+
+</html>
